@@ -1,0 +1,7 @@
+---
+ansible_network_os: fortios
+ansible_connection: httpapi
+ansible_user: admin
+ansible_password: Chevron@123
+ansible_become: yes
+ansible_become_method: enable

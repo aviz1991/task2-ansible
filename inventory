@@ -1,0 +1,8 @@
+[devices]
+
+54.160.87.184 
+34.228.50.237
+
+
+[network:children]
+devices

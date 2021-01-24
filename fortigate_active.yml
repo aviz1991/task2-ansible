@@ -1,0 +1,25 @@
+---
+- name: Configuring the HA foe the fortigate FW in AWS
+  hosts: localhost
+  vars:
+    host: "54.160.87.184"
+    username: "admin"
+    password: "<password>"
+    vdom: "root"
+    ssl_verify: "False"   
+  tasks:
+  - name: Configure HA    
+    fortinet.fortios.fortios_system_ha:
+      host: "{{ host }}"
+      username: "{{ username  }}"
+      password: "{{ password  }}"
+      vdom: "{{ vdom  }}"
+      ssl_verify:  "{{ ssl_verify }}"
+      system_ha:
+        group_name: "aws_fortigate"
+        mode: "a-p"
+        priority: 250
+        hbdev: "port2"
+        unicast_hb: "enable"
+        unicast_hb_netmask: "255.255.255.224"
+        unicast_hb_peerip: "192.168.100.75"
